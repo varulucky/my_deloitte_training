@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+    <!-- Hibernate dialect -->
+     <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+     
+     <!--Database connection and mapping  -->
+     
+       <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3308/newmycart</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">Varu1995@</property>
+        <!-- Related to Hibernate properties -->
+        <!-- 1st time it creates the table and later on it updates -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- show sql query and put true -->
+        <property name="show_sql">true</property>
+        
+        <!-- Mapping for table entities (we will add this later) -->
+        
+        <mapping class="com.deloitte.mycart.entites.User"/>
+        <mapping class="com.deloitte.mycart.entites.Category"/>
+        <mapping class="com.deloitte.mycart.entites.Product"/>
+        
+        
+        
+        
+        
+        
+</session-factory>
+
+</hibernate-configuration>

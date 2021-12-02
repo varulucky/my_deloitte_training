@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>assign4</title>
+    <style>
+        /* form {
+            display: flex;
+            /* flex-direction: row; 
+        }*/
+
+        */ label,
+        input {
+            display: flex;
+        }
+
+        .btn {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="formDiv">
+        <form id="persons">
+            <label for="firstName">First Name :</label>
+            <input type="text" id="firstName" placeholder="First Name" required autofocus>&nbsp;&nbsp;&nbsp;
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <div class="btn">
+                <button type="submit" id="btn" onsubmit="store()">Save Name</button>
+            </div>
+        </form>
+        <div class="btn">
+            <button type="submit" id="btn" onclick="retrieveRecords()">Get Name</button>
+        </div>
+    </div>
+    <script>
+        function store() { //stores items in the localStorage
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+
+            const person = {
+                firstName: firstName,
+                lastName: lastName,
+            }
+
+            window.localStorage.setItem('user', JSON.stringify(person));
+
+        } //retrieves items in the localStorage
+        function retrieveRecords() {
+            var retrievedlastname = localStorage.getItem('user');
+            console.log('retrievedLastname: ', JSON.parse(retrievedlastname));
+
+        }
+
+        window.onload = function () { //ensures the page is loaded before functions are executed.
+            document.getElementById("persons").onsubmit = store
+            document.getElementById("btn").onclick = retrieveRecords
+        }
+    </script>
+</body>
+
+</html>

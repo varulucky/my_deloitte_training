@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Hibernate Dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property><!-- 
+			fully qualified class name -->
+
+
+		<!-- Database coneection and mapping -->
+
+		<!-- port number of mysql is 3308 -->
+
+
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3308/mycart_db_Nov25</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">Varu1995@</property>
+		
+
+		<!-- Related to Hibernate Properties -->
+		<!-- First time it creates the table and later on it updates it -->
+
+		<property name="hbm2ddl.auto">update</property>   <!-- hbm :hibernate ,ddl:data definition lang -->
+		<property name="show_sql">true</property>
+
+		<!-- Mapping for table entities(we will add later) -->
+
+
+
+
+
+	</session-factory>
+
+
+
+
+</hibernate-configuration>
